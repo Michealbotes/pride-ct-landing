@@ -1,0 +1,362 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Cape Town World Pride — The Road to 2028</title>
+<meta name="description" content="Follow the journey to World Pride in Cape Town. Events, products and community — subscribe for updates from the Mother City.">
+<style>
+  :root {
+    --ink: #14121f;
+    --ink-soft: #4a4560;
+    --paper: #fffdfa;
+    --cream: #faf5ec;
+    --red: #e40303;
+    --orange: #ff8c00;
+    --yellow: #ffce00;
+    --green: #008026;
+    --blue: #004dff;
+    --purple: #750787;
+    --pink: #ffafc7;
+    --sky-blue: #74d7ee;
+    --brown: #613915;
+  }
+
+  * { margin: 0; padding: 0; box-sizing: border-box; }
+
+  html { scroll-behavior: smooth; }
+
+  body {
+    font-family: "Avenir Next", Avenir, "Segoe UI", system-ui, -apple-system, sans-serif;
+    background: var(--paper);
+    color: var(--ink);
+    line-height: 1.6;
+    -webkit-font-smoothing: antialiased;
+  }
+
+  /* ---------- Pride ribbon ---------- */
+  .ribbon {
+    display: flex;
+    height: 7px;
+    position: sticky;
+    top: 0;
+    z-index: 50;
+  }
+  .ribbon span { flex: 1; }
+  .ribbon span:nth-child(1) { background: var(--red); }
+  .ribbon span:nth-child(2) { background: var(--orange); }
+  .ribbon span:nth-child(3) { background: var(--yellow); }
+  .ribbon span:nth-child(4) { background: var(--green); }
+  .ribbon span:nth-child(5) { background: var(--blue); }
+  .ribbon span:nth-child(6) { background: var(--purple); }
+  .ribbon span:nth-child(7) { background: var(--sky-blue); }
+  .ribbon span:nth-child(8) { background: var(--pink); }
+  .ribbon span:nth-child(9) { background: #fff; }
+  .ribbon span:nth-child(10) { background: var(--brown); }
+  .ribbon span:nth-child(11) { background: var(--ink); }
+
+  /* ---------- Hero / logo lockup ---------- */
+  .hero {
+    min-height: 88vh;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    padding: 3rem 1.5rem;
+    background: var(--paper);
+  }
+
+  .logo-lockup {
+    width: min(760px, 92vw);
+    margin: 0 auto;
+  }
+
+  .logo-word {
+    font-weight: 600;
+    letter-spacing: 0.55em;
+    text-indent: 0.55em; /* balance the trailing letter-spacing */
+    text-transform: uppercase;
+    color: var(--ink);
+  }
+  .logo-word.top    { font-size: clamp(1.5rem, 4.6vw, 2.6rem); }
+  .logo-word.bottom { font-size: clamp(1.5rem, 4.6vw, 2.6rem); margin-top: -0.4rem; }
+
+  .logo-art { width: 100%; height: auto; display: block; margin: 0.4rem 0; }
+
+  .hero .tagline {
+    margin-top: 2.4rem;
+    font-size: clamp(1rem, 2vw, 1.2rem);
+    color: var(--ink-soft);
+    letter-spacing: 0.04em;
+  }
+  .hero .tagline strong { color: var(--ink); font-weight: 700; }
+
+  .rainbow-rule {
+    width: 130px;
+    height: 5px;
+    border-radius: 999px;
+    margin: 1.6rem auto 0;
+    background: linear-gradient(90deg, var(--red), var(--orange), var(--yellow), var(--green), var(--blue), var(--purple));
+  }
+
+  .cta-row {
+    display: flex;
+    gap: 0.9rem;
+    justify-content: center;
+    flex-wrap: wrap;
+    margin-top: 2.2rem;
+  }
+
+  .btn {
+    display: inline-block;
+    font-size: 1rem;
+    font-weight: 700;
+    padding: 0.95rem 2.2rem;
+    border-radius: 999px;
+    text-decoration: none;
+    transition: transform 0.15s ease, box-shadow 0.15s ease;
+    cursor: pointer;
+    border: none;
+  }
+  .btn:hover { transform: translateY(-2px); }
+
+  .btn-primary {
+    background: var(--ink);
+    color: #fff;
+    box-shadow: 0 6px 20px rgba(20,18,31,0.25);
+  }
+  .btn-ghost {
+    color: var(--ink);
+    border: 1.5px solid var(--ink);
+    background: transparent;
+  }
+
+  /* ---------- Sections ---------- */
+  section { padding: 5.5rem 1.5rem; }
+
+  .wrap { max-width: 980px; margin: 0 auto; }
+
+  .section-kicker {
+    font-size: 0.78rem;
+    font-weight: 800;
+    letter-spacing: 0.24em;
+    text-transform: uppercase;
+    color: var(--purple);
+    margin-bottom: 0.8rem;
+  }
+
+  h2 {
+    font-size: clamp(1.8rem, 4vw, 2.6rem);
+    font-weight: 800;
+    letter-spacing: -0.02em;
+    line-height: 1.15;
+    margin-bottom: 1.1rem;
+    text-wrap: balance;
+  }
+
+  .vision { background: var(--cream); }
+  .vision p {
+    font-size: 1.1rem;
+    color: var(--ink-soft);
+    max-width: 44rem;
+    margin-bottom: 1rem;
+  }
+
+  .pillars {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+    gap: 1.2rem;
+    margin-top: 2.6rem;
+  }
+
+  .pillar {
+    background: var(--paper);
+    border-radius: 18px;
+    padding: 1.8rem 1.6rem;
+    border-top: 5px solid var(--purple);
+    box-shadow: 0 2px 12px rgba(20,18,31,0.05);
+  }
+  .pillar:nth-child(1) { border-top-color: var(--red); }
+  .pillar:nth-child(2) { border-top-color: var(--yellow); }
+  .pillar:nth-child(3) { border-top-color: var(--blue); }
+
+  .pillar h3 {
+    font-size: 1.15rem;
+    font-weight: 800;
+    margin-bottom: 0.5rem;
+  }
+  .pillar p { color: var(--ink-soft); font-size: 0.98rem; }
+
+  /* ---------- Subscribe ---------- */
+  .subscribe {
+    background: var(--ink);
+    color: #fff;
+    text-align: center;
+  }
+  .subscribe .section-kicker { color: var(--pink); }
+  .subscribe p {
+    color: rgba(255,255,255,0.75);
+    max-width: 36rem;
+    margin: 0 auto 2rem;
+  }
+
+  .sub-form {
+    display: flex;
+    gap: 0.6rem;
+    justify-content: center;
+    flex-wrap: wrap;
+    max-width: 34rem;
+    margin: 0 auto;
+  }
+  .sub-form input {
+    flex: 1 1 240px;
+    font-size: 1rem;
+    padding: 0.95rem 1.3rem;
+    border-radius: 999px;
+    border: 1.5px solid rgba(255,255,255,0.25);
+    background: rgba(255,255,255,0.08);
+    color: #fff;
+    outline: none;
+  }
+  .sub-form input::placeholder { color: rgba(255,255,255,0.45); }
+  .sub-form input:focus { border-color: var(--pink); }
+
+  .btn-subscribe {
+    background: linear-gradient(90deg, var(--red), var(--orange), var(--purple));
+    color: #fff;
+  }
+
+  .sub-note {
+    font-size: 0.82rem;
+    color: rgba(255,255,255,0.45);
+    margin-top: 1.1rem;
+  }
+
+  /* ---------- Footer ---------- */
+  footer {
+    background: #0d0b16;
+    color: rgba(255,255,255,0.55);
+    text-align: center;
+    padding: 2.6rem 1.5rem;
+    font-size: 0.88rem;
+  }
+  footer .domains {
+    display: flex;
+    gap: 1.4rem;
+    justify-content: center;
+    flex-wrap: wrap;
+    margin-bottom: 1.2rem;
+  }
+  footer .domains span { color: rgba(255,255,255,0.7); font-weight: 600; }
+
+  @media (max-width: 560px) {
+    .logo-word { letter-spacing: 0.35em; text-indent: 0.35em; }
+    section { padding: 4rem 1.2rem; }
+  }
+</style>
+</head>
+<body>
+
+<div class="ribbon" aria-hidden="true">
+  <span></span><span></span><span></span><span></span><span></span><span></span>
+  <span></span><span></span><span></span><span></span><span></span>
+</div>
+
+<header class="hero">
+  <h1 class="logo-lockup" aria-label="Cape Town World Pride">
+    <span class="logo-word top">Cape&nbsp;Town</span>
+
+    <!-- Continuous-line Table Mountain flowing into a heart -->
+    <svg class="logo-art" viewBox="0 0 1200 340" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
+      <path fill="none" stroke="var(--ink)" stroke-width="7" stroke-linecap="round" stroke-linejoin="round"
+        d="M 30 285
+           C 90 278, 130 255, 160 215
+           L 178 190
+           l 14 20 l 12 -24 l 10 14
+           C 220 185, 235 160, 252 148
+           L 268 140
+           L 480 140
+           l 14 26 l 13 -10 l 11 22 l 14 -8 l 12 24
+           C 560 230, 600 262, 650 280
+           C 695 294, 755 312, 810 305
+           C 745 262, 743 196, 786 190
+           C 801 188, 808 198, 810 212
+           C 812 198, 819 188, 834 190
+           C 877 196, 875 262, 810 305
+           C 850 320, 920 306, 990 298
+           C 1080 288, 1130 291, 1170 293" />
+    </svg>
+
+    <span class="logo-word bottom">World&nbsp;Pride</span>
+  </h1>
+
+  <p class="tagline">The Mother City's road to <strong>2028</strong> — events, drops and community, building toward the biggest celebration of Pride Africa has ever seen.</p>
+  <div class="rainbow-rule" aria-hidden="true"></div>
+
+  <div class="cta-row">
+    <a class="btn btn-primary" href="#subscribe">Get updates</a>
+    <a class="btn btn-ghost" href="#vision">Our vision</a>
+  </div>
+</header>
+
+<section id="vision" class="vision">
+  <div class="wrap">
+    <div class="section-kicker">The Road to 2028</div>
+    <h2>Pride in Cape Town, made bigger than ever.</h2>
+    <p>Cape Town has always marched with heart. Over the next two years we're building a network of events, products and partnerships across the city — growing the community, the culture and the celebration, all leading to Pride 2028.</p>
+    <p>This page is where it starts. Follow along as line-ups, launches and collaborations are announced.</p>
+
+    <div class="pillars">
+      <div class="pillar">
+        <h3>Events</h3>
+        <p>Parties, markets, screenings and community gatherings across the Mother City — a growing calendar leading up to the main celebration.</p>
+      </div>
+      <div class="pillar">
+        <h3>Products &amp; Collabs</h3>
+        <p>Limited drops and local collaborations that carry the flag — made in Cape Town, made with pride.</p>
+      </div>
+      <div class="pillar">
+        <h3>Community</h3>
+        <p>A network of people, venues and organisations across the city, connected and amplified. Everyone's invited.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section id="subscribe" class="subscribe">
+  <div class="wrap">
+    <div class="section-kicker">Stay in the loop</div>
+    <h2>Be first to know.</h2>
+    <p>Event announcements, product drops and news on the road to 2028 — straight to your inbox. No spam, unsubscribe anytime.</p>
+
+    <form class="sub-form" data-subscribe>
+      <input type="email" name="email" placeholder="you@example.com" required autocomplete="email" aria-label="Email address">
+      <button class="btn btn-subscribe" type="submit">Subscribe</button>
+    </form>
+    <p class="sub-note">Sign-ups open soon — we're putting the final touches on the list.</p>
+  </div>
+</section>
+
+<footer>
+  <div class="domains">
+    <span>capetownpride2028.co.za</span>
+    <span>capetownpride2028.com</span>
+    <span>worldpridecapetown.co.za</span>
+    <span>worldpridecapetown.com</span>
+  </div>
+  <p>&copy; 2026 World Pride Cape Town · Cape Town, South Africa</p>
+</footer>
+
+<script>
+  // Subscribe backend not wired up yet — placeholder handler.
+  document.querySelector('[data-subscribe]').addEventListener('submit', function (e) {
+    e.preventDefault();
+    var note = document.querySelector('.sub-note');
+    note.textContent = 'Thanks for your interest! Sign-ups open very soon — check back shortly.';
+    note.style.color = '#ffafc7';
+  });
+</script>
+
+</body>
+</html>
