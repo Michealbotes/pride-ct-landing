@@ -188,15 +188,15 @@
   }
   .pillar p { color: var(--ink-soft); font-size: 0.98rem; }
 
-  /* ---------- Sponsor ---------- */
-  .sponsor { text-align: center; }
-  .sponsor p {
+  /* ---------- Partner ---------- */
+  .partner { text-align: center; }
+  .partner p {
     font-size: 1.1rem;
     color: var(--ink-soft);
     max-width: 42rem;
     margin: 0 auto 2rem;
   }
-  .sponsor-note {
+  .partner-note {
     font-size: 0.85rem !important;
     margin-top: 1.2rem !important;
     color: #6f6a85 !important;
@@ -295,25 +295,38 @@
   <h1 class="logo-lockup" aria-label="Cape Town — Road to 2028">
     <span class="logo-word top">Cape&nbsp;Town</span>
 
-    <!-- Continuous-line Table Mountain flowing into a heart -->
+    <!-- Continuous-line Table Mountain flowing into a red heart with a pride rainbow -->
     <svg class="logo-art" viewBox="0 0 1200 340" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
+      <!-- rainbow projecting right from the heart -->
+      <g fill="none" stroke-width="8" stroke-linecap="round">
+        <path stroke="#e40303" d="M 920 208 C 1010 188, 1105 202, 1170 210" />
+        <path stroke="#ff8c00" d="M 924 219 C 1014 199, 1109 213, 1170 221" />
+        <path stroke="#ffce00" d="M 923 230 C 1013 210, 1108 224, 1170 232" />
+        <path stroke="#008026" d="M 917 241 C 1007 221, 1102 235, 1170 243" />
+        <path stroke="#004dff" d="M 907 252 C 997 232, 1092 246, 1170 254" />
+        <path stroke="#750787" d="M 894 263 C 984 243, 1079 257, 1170 265" />
+      </g>
+      <!-- Table Mountain -->
       <path fill="none" stroke="var(--ink)" stroke-width="7" stroke-linecap="round" stroke-linejoin="round"
-        d="M 30 285
-           C 90 278, 130 255, 160 215
-           L 178 190
-           l 14 20 l 12 -24 l 10 14
-           C 220 185, 235 160, 252 148
-           L 268 140
-           L 480 140
-           l 14 26 l 13 -10 l 11 22 l 14 -8 l 12 24
-           C 560 230, 600 262, 650 280
-           C 695 294, 755 312, 810 305
-           C 745 262, 743 196, 786 190
-           C 801 188, 808 198, 810 212
-           C 812 198, 819 188, 834 190
-           C 877 196, 875 262, 810 305
-           C 850 320, 920 306, 990 298
-           C 1080 288, 1130 291, 1170 293" />
+        d="M 30 282
+           C 75 274, 110 248, 140 210
+           L 152 185
+           l 12 18 l 14 -28 l 10 16 l 14 -36 l 10 8 l 14 -25
+           L 240 132
+           L 560 132
+           l 12 26 l 10 -14 l 12 30 l 12 -16 l 14 34
+           C 640 210, 650 200, 662 185
+           l 10 14 l 12 -18
+           C 700 200, 715 235, 740 262
+           C 765 282, 790 292, 815 296
+           C 830 300, 848 302, 860 300" />
+      <!-- red heart, continuous-line style -->
+      <path fill="none" stroke="#e40303" stroke-width="7" stroke-linecap="round" stroke-linejoin="round"
+        d="M 860 300
+           C 795 258, 793 192, 836 186
+           C 851 184, 858 194, 860 208
+           C 862 194, 869 184, 884 186
+           C 927 192, 925 258, 860 300" />
     </svg>
 
     <span class="logo-word bottom">Road&nbsp;to&nbsp;2028</span>
@@ -325,7 +338,7 @@
   <div class="cta-row">
     <a class="btn btn-primary" href="#subscribe">Get updates</a>
     <a class="btn btn-ghost" href="#vision">Our vision</a>
-    <a class="btn btn-ghost" href="#sponsor">Become a sponsor</a>
+    <a class="btn btn-ghost" href="#partner">Become a partner</a>
   </div>
 </header>
 
@@ -334,7 +347,7 @@
     <div class="section-kicker">The Road to 2028</div>
     <h2>Pride in Cape Town, made bigger than ever.</h2>
     <p>Cape Town has always marched with heart — and in 2028 the city hosts WorldPride, the first ever on African soil. We're an independent crew of locals building a network of events, products and partnerships across the city in the run-up — growing the community, the culture and the celebration.</p>
-    <p>This page is where it starts. Follow along as line-ups, launches and collaborations are announced.</p>
+    <p>This page is where it starts. We'll be sharing the highlights beyond the main events — the parties, pop-ups, people and places — to make WorldPride in Cape Town an even greater experience. Follow along as line-ups, launches and collaborations are announced.</p>
 
     <div class="pillars">
       <div class="pillar">
@@ -353,13 +366,13 @@
   </div>
 </section>
 
-<section id="sponsor" class="sponsor">
+<section id="partner" class="partner">
   <div class="wrap">
     <div class="section-kicker">Partner with us</div>
-    <h2>Put your brand behind Pride.</h2>
-    <p>From backing our independent events to product collabs and community programmes, there's a place for partners of every size on the road to 2028. We're an independent initiative — not the official WorldPride organisers — so you know exactly what you're backing. Tell us who you are and we'll come back to you with options.</p>
-    <a class="btn btn-primary" href="mailto:info@worldpridecapetown.com?subject=Sponsorship%20enquiry%20%E2%80%94%20Road%20to%202028%20(independent%20community%20network)&body=Organisation%3A%20%0D%0AContact%20person%3A%20%0D%0AEmail%3A%20%0D%0APhone%3A%20%0D%0AWhat%20would%20you%20like%20to%20sponsor%3F%20(event%20%2F%20product%20collab%20%2F%20community%20programme)%3A%20%0D%0ABudget%20range%3A%20%0D%0AAnything%20else%3A%20">Apply to sponsor</a>
-    <p class="sponsor-note">Opens a pre-filled application email — tell us about your organisation and we'll be in touch.</p>
+    <h2>Build 2028 with us.</h2>
+    <p>From co-hosting independent events to product collabs and community programmes, there's a place for partners of every size on the road to 2028. We're an independent initiative — not the official WorldPride organisers — so you know exactly who you're teaming up with. Tell us who you are and what you'd bring, and we'll come back to you with ideas.</p>
+    <a class="btn btn-primary" href="mailto:info@worldpridecapetown.com?subject=Partnership%20enquiry%20%E2%80%94%20Road%20to%202028%20(independent%20community%20network)&body=Organisation%3A%20%0D%0AContact%20person%3A%20%0D%0AEmail%3A%20%0D%0APhone%3A%20%0D%0AWhat%20kind%20of%20partnership%20interests%20you%3F%20(events%20%2F%20product%20collab%20%2F%20community%20programme)%3A%20%0D%0AWhat%20you%27d%20bring%3A%20%0D%0AAnything%20else%3A%20">Become a partner</a>
+    <p class="partner-note">Opens a pre-filled email — tell us about your organisation and we'll be in touch.</p>
   </div>
 </section>
 
