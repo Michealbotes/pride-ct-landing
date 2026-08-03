@@ -188,8 +188,24 @@
   }
   .pillar p { color: var(--ink-soft); font-size: 0.98rem; }
 
+  /* ---------- What's on ---------- */
+  .whats-on .intro {
+    font-size: 1.1rem;
+    color: var(--ink-soft);
+    max-width: 44rem;
+    margin-bottom: 1rem;
+  }
+  .whats-on .pillar:nth-child(4) { border-top-color: var(--green); }
+  .whats-on .pillar:nth-child(5) { border-top-color: var(--orange); }
+  .whats-on .note {
+    margin-top: 2.2rem;
+    font-size: 0.95rem;
+    color: var(--ink-soft);
+  }
+  .whats-on .note a { color: var(--purple); font-weight: 700; }
+
   /* ---------- Partner ---------- */
-  .partner { text-align: center; }
+  .partner { text-align: center; background: var(--cream); }
   .partner p {
     font-size: 1.1rem;
     color: var(--ink-soft);
@@ -299,39 +315,45 @@
     <svg class="logo-art" viewBox="0 0 1200 340" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
       <!-- rainbow projecting right from the heart -->
       <g fill="none" stroke-width="8" stroke-linecap="round">
-        <path stroke="#e40303" d="M 962 185 C 1040 167, 1110 178, 1175 187" />
-        <path stroke="#ff8c00" d="M 968 196 C 1046 178, 1116 189, 1175 198" />
-        <path stroke="#ffce00" d="M 967 207 C 1045 189, 1115 200, 1175 209" />
-        <path stroke="#008026" d="M 960 218 C 1038 200, 1108 211, 1175 220" />
-        <path stroke="#004dff" d="M 948 229 C 1026 211, 1096 222, 1175 231" />
-        <path stroke="#750787" d="M 933 240 C 1011 222, 1081 233, 1175 242" />
+        <path stroke="#e40303" d="M 937 185 C 1017 167, 1102 178, 1175 187" />
+        <path stroke="#ff8c00" d="M 935 196 C 1015 178, 1100 189, 1175 198" />
+        <path stroke="#ffce00" d="M 931 207 C 1011 189, 1096 200, 1175 209" />
+        <path stroke="#008026" d="M 924 218 C 1004 200, 1089 211, 1175 220" />
+        <path stroke="#004dff" d="M 914 229 C 994 211, 1079 222, 1175 231" />
+        <path stroke="#750787" d="M 902 240 C 982 222, 1067 233, 1175 242" />
       </g>
       <!-- Table Mountain -->
       <path fill="none" stroke="var(--ink)" stroke-width="7" stroke-linecap="round" stroke-linejoin="round"
         d="M 25 288
-           C 60 284, 100 262, 135 225
-           C 145 214, 152 205, 160 196
-           L 176 168
-           l 12 24
-           l 20 -52
-           l 14 26
-           l 16 -44
-           L 248 118
-           L 560 118
-           l 10 26 l 10 -12 l 12 34 l 10 -14 l 14 40
-           C 626 208, 634 216, 642 222
-           l 16 -36
-           l 14 30
-           C 690 240, 715 262, 750 276
-           C 790 290, 840 296, 872 288
-           C 888 280, 898 274, 905 262" />
-      <!-- red heart, continuous-line style -->
+           C 60 282, 105 250, 140 210
+           C 150 198, 158 186, 165 175
+           L 190 146
+           l 16 14
+           l 25 -30
+           L 263 196
+           L 291 118
+           L 605 118
+           l 15 23
+           l 10 -8
+           l 12 35
+           l 19 -13
+           l 28 53
+           L 716 170
+           l 8 12
+           l 21 -44
+           C 766 190, 798 246, 826 275
+           C 833 283, 836 288, 838 291" />
+      <!-- red heart, swept from the mountain line with a bottom crossing -->
       <path fill="none" stroke="#e40303" stroke-width="7" stroke-linecap="round" stroke-linejoin="round"
-        d="M 905 262
-           C 850 226, 852 172, 893 166
-           C 906 164, 911 173, 912 185
-           C 913 173, 919 164, 932 166
-           C 972 172, 966 226, 912 264" />
+        d="M 838 291
+           C 862 294, 882 284, 895 268
+           C 917 240, 940 216, 941 190
+           C 942 168, 924 158, 911 163
+           C 902 167, 897 176, 896 188
+           C 895 176, 890 167, 881 163
+           C 868 158, 850 168, 849 190
+           C 848 216, 872 240, 893 265
+           C 902 280, 918 289, 942 293" />
     </svg>
 
     <span class="logo-word bottom">Road&nbsp;to&nbsp;2028</span>
@@ -342,6 +364,7 @@
 
   <div class="cta-row">
     <a class="btn btn-primary" href="#subscribe">Get updates</a>
+    <a class="btn btn-ghost" href="#whats-on">What's on</a>
     <a class="btn btn-ghost" href="#vision">Our vision</a>
     <a class="btn btn-ghost" href="#partner">Become a partner</a>
   </div>
@@ -368,6 +391,39 @@
         <p>A network of people, venues and organisations across the city, connected and amplified. Everyone's invited.</p>
       </div>
     </div>
+  </div>
+</section>
+
+<section id="whats-on" class="whats-on">
+  <div class="wrap">
+    <div class="section-kicker">What to do this Pride</div>
+    <h2>Taste, travel and celebrate the Mother City.</h2>
+    <p class="intro">A growing line-up of experiences from our network — here's what's brewing for this Pride season.</p>
+
+    <div class="pillars">
+      <div class="pillar">
+        <h3>Gay Wine Tour</h3>
+        <p>A queer-friendly day through the Cape Winelands — tastings, mountain views and very good company.</p>
+      </div>
+      <div class="pillar">
+        <h3>African Wine Farm Braai</h3>
+        <p>Fire, wine and the Winelands — a proper South African braai on the farm, Pride edition.</p>
+      </div>
+      <div class="pillar">
+        <h3>Travel Tours</h3>
+        <p>Guided trips around the Mother City and beyond — Cape Point, the Peninsula and the spots only locals know.</p>
+      </div>
+      <div class="pillar">
+        <h3>Pop-Up Dinner</h3>
+        <p>An intimate pop-up evening with a three-course dinner — new venue, new menu, every time.</p>
+      </div>
+      <div class="pillar">
+        <h3>Restaurants</h3>
+        <p>Our pick of queer-friendly places to eat and drink across the city, updated as we go.</p>
+      </div>
+    </div>
+
+    <p class="note">Dates and bookings drop first to the mailing list — <a href="#subscribe">get updates</a>.</p>
   </div>
 </section>
 
