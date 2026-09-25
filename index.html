@@ -3,506 +3,88 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Cape Town — Road to Pride 2028 · Independent Pride Community Network</title>
-<meta name="description" content="An independent community network celebrating Cape Town's journey to WorldPride 2028. Events, products and community — subscribe for updates from the Mother City.">
+<title>Pride</title>
+<meta name="robots" content="noindex">
 <style>
   :root {
-    --ink: #14121f;
-    --ink-soft: #4a4560;
     --paper: #fffdfa;
-    --cream: #faf5ec;
-    --red: #e40303;
-    --orange: #ff8c00;
-    --yellow: #ffce00;
-    --green: #008026;
-    --blue: #004dff;
-    --purple: #750787;
-    --pink: #ffafc7;
-    --sky-blue: #74d7ee;
-    --brown: #613915;
+    --ink-soft: #6f6a85;
   }
-
   * { margin: 0; padding: 0; box-sizing: border-box; }
-
-  html { scroll-behavior: smooth; }
-
   body {
     font-family: "Avenir Next", Avenir, "Segoe UI", system-ui, -apple-system, sans-serif;
     background: var(--paper);
-    color: var(--ink);
-    line-height: 1.6;
-    -webkit-font-smoothing: antialiased;
-  }
-
-  /* ---------- Pride ribbon ---------- */
-  .ribbon {
-    display: flex;
-    height: 7px;
-    position: sticky;
-    top: 0;
-    z-index: 50;
-  }
-  .ribbon span { flex: 1; }
-  .ribbon span:nth-child(1) { background: var(--red); }
-  .ribbon span:nth-child(2) { background: var(--orange); }
-  .ribbon span:nth-child(3) { background: var(--yellow); }
-  .ribbon span:nth-child(4) { background: var(--green); }
-  .ribbon span:nth-child(5) { background: var(--blue); }
-  .ribbon span:nth-child(6) { background: var(--purple); }
-  .ribbon span:nth-child(7) { background: var(--sky-blue); }
-  .ribbon span:nth-child(8) { background: var(--pink); }
-  .ribbon span:nth-child(9) { background: #fff; }
-  .ribbon span:nth-child(10) { background: var(--brown); }
-  .ribbon span:nth-child(11) { background: var(--ink); }
-
-  /* ---------- Hero / logo lockup ---------- */
-  .hero {
-    min-height: 88vh;
+    min-height: 100vh;
     display: flex;
     flex-direction: column;
     justify-content: center;
     align-items: center;
-    text-align: center;
-    padding: 3rem 1.5rem;
-    background: var(--paper);
+    padding: 2rem 1.5rem;
   }
 
-  .logo-lockup {
-    width: min(760px, 92vw);
-    margin: 0 auto;
-  }
-
-  .logo-word {
-    font-weight: 600;
-    letter-spacing: 0.55em;
-    text-indent: 0.55em; /* balance the trailing letter-spacing */
-    text-transform: uppercase;
-    color: var(--ink);
-  }
-  .logo-word.top    { font-size: clamp(1.5rem, 4.6vw, 2.6rem); }
-  .logo-word.bottom { font-size: clamp(1.15rem, 3.4vw, 1.95rem); margin-top: -0.4rem; }
-
-  .logo-art { width: 100%; height: auto; display: block; margin: 0.4rem 0; }
-
-  .hero .tagline {
-    margin-top: 2.4rem;
-    font-size: clamp(1rem, 2vw, 1.2rem);
-    color: var(--ink-soft);
-    letter-spacing: 0.04em;
-  }
-  .hero .tagline strong { color: var(--ink); font-weight: 700; }
-
-  .rainbow-rule {
-    width: 130px;
-    height: 5px;
-    border-radius: 999px;
-    margin: 1.6rem auto 0;
-    background: linear-gradient(90deg, var(--red), var(--orange), var(--yellow), var(--green), var(--blue), var(--purple));
-  }
-
-  .cta-row {
+  .flag {
+    width: min(82vw, 620px);
+    aspect-ratio: 5 / 3;
     display: flex;
-    gap: 0.9rem;
-    justify-content: center;
-    flex-wrap: wrap;
-    margin-top: 2.2rem;
+    overflow: visible;
+    filter: drop-shadow(0 14px 28px rgba(20,18,31,0.18));
+  }
+  .flag span {
+    flex: 1;
+    /* overlap neighbours so the wave transform leaves no seams */
+    margin-right: -1px;
+    background: linear-gradient(180deg,
+      #e40303 0%,    #e40303 16.66%,
+      #ff8c00 16.66%, #ff8c00 33.33%,
+      #ffce00 33.33%, #ffce00 50%,
+      #008026 50%,    #008026 66.66%,
+      #004dff 66.66%, #004dff 83.33%,
+      #750787 83.33%, #750787 100%);
+    animation: wave 1.9s ease-in-out infinite;
+    animation-delay: calc(var(--i) * -0.085s);
+  }
+  @keyframes wave {
+    0%, 100% { transform: translateY(0)    scaleY(1); }
+    50%      { transform: translateY(10px) scaleY(0.985); }
   }
 
-  .btn {
-    display: inline-block;
-    font-size: 1rem;
-    font-weight: 700;
-    padding: 0.95rem 2.2rem;
-    border-radius: 999px;
-    text-decoration: none;
-    transition: transform 0.15s ease, box-shadow 0.15s ease;
-    cursor: pointer;
-    border: none;
-  }
-  .btn:hover { transform: translateY(-2px); }
-
-  .btn-primary {
-    background: var(--ink);
-    color: #fff;
-    box-shadow: 0 6px 20px rgba(20,18,31,0.25);
-  }
-  .btn-ghost {
-    color: var(--ink);
-    border: 1.5px solid var(--ink);
-    background: transparent;
-  }
-
-  /* ---------- Sections ---------- */
-  section { padding: 5.5rem 1.5rem; }
-
-  .wrap { max-width: 980px; margin: 0 auto; }
-
-  .section-kicker {
-    font-size: 0.78rem;
-    font-weight: 800;
-    letter-spacing: 0.24em;
-    text-transform: uppercase;
-    color: var(--purple);
-    margin-bottom: 0.8rem;
-  }
-
-  h2 {
-    font-size: clamp(1.8rem, 4vw, 2.6rem);
-    font-weight: 800;
-    letter-spacing: -0.02em;
-    line-height: 1.15;
-    margin-bottom: 1.1rem;
-    text-wrap: balance;
-  }
-
-  .vision { background: var(--cream); }
-  .vision p {
-    font-size: 1.1rem;
-    color: var(--ink-soft);
-    max-width: 44rem;
-    margin-bottom: 1rem;
-  }
-
-  .pillars {
-    display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
-    gap: 1.2rem;
-    margin-top: 2.6rem;
-  }
-
-  .pillar {
-    background: var(--paper);
-    border-radius: 18px;
-    padding: 1.8rem 1.6rem;
-    border-top: 5px solid var(--purple);
-    box-shadow: 0 2px 12px rgba(20,18,31,0.05);
-  }
-  .pillar:nth-child(1) { border-top-color: var(--red); }
-  .pillar:nth-child(2) { border-top-color: var(--yellow); }
-  .pillar:nth-child(3) { border-top-color: var(--blue); }
-
-  .pillar h3 {
-    font-size: 1.15rem;
-    font-weight: 800;
-    margin-bottom: 0.5rem;
-  }
-  .pillar p { color: var(--ink-soft); font-size: 0.98rem; }
-
-  /* ---------- What's on ---------- */
-  .whats-on .intro {
-    font-size: 1.1rem;
-    color: var(--ink-soft);
-    max-width: 44rem;
-    margin-bottom: 1rem;
-  }
-  .whats-on .pillar:nth-child(4) { border-top-color: var(--green); }
-  .whats-on .pillar:nth-child(5) { border-top-color: var(--orange); }
-  .whats-on .pillar:nth-child(6) { border-top-color: var(--purple); }
-  .whats-on .pillar:nth-child(7) { border-top-color: var(--sky-blue); }
-  .whats-on .pillar:nth-child(8) { border-top-color: var(--pink); }
-  .whats-on .note {
-    margin-top: 2.2rem;
-    font-size: 0.95rem;
-    color: var(--ink-soft);
-  }
-  .whats-on .note a { color: var(--purple); font-weight: 700; }
-
-  /* ---------- Partner ---------- */
-  .partner { text-align: center; background: var(--cream); }
-  .partner p {
-    font-size: 1.1rem;
-    color: var(--ink-soft);
-    max-width: 42rem;
-    margin: 0 auto 2rem;
-  }
-  .partner-note {
-    font-size: 0.85rem !important;
-    margin-top: 1.2rem !important;
-    color: #6f6a85 !important;
-  }
-
-  /* ---------- Subscribe ---------- */
-  .subscribe {
-    background: var(--ink);
-    color: #fff;
-    text-align: center;
-  }
-  .subscribe .section-kicker { color: var(--pink); }
-  .subscribe p {
-    color: rgba(255,255,255,0.75);
-    max-width: 36rem;
-    margin: 0 auto 2rem;
-  }
-
-  .sub-form {
-    display: flex;
-    gap: 0.6rem;
-    justify-content: center;
-    flex-wrap: wrap;
+  .note {
+    margin-top: 3rem;
     max-width: 34rem;
-    margin: 0 auto;
-  }
-  .sub-form input {
-    flex: 1 1 240px;
-    font-size: 1rem;
-    padding: 0.95rem 1.3rem;
-    border-radius: 999px;
-    border: 1.5px solid rgba(255,255,255,0.25);
-    background: rgba(255,255,255,0.08);
-    color: #fff;
-    outline: none;
-  }
-  .sub-form input::placeholder { color: rgba(255,255,255,0.45); }
-  .sub-form input:focus { border-color: var(--pink); }
-
-  .btn-subscribe {
-    background: linear-gradient(90deg, var(--red), var(--orange), var(--purple));
-    color: #fff;
-  }
-
-  .sub-note {
-    font-size: 0.82rem;
-    color: rgba(255,255,255,0.45);
-    margin-top: 1.1rem;
-  }
-
-  /* ---------- Footer ---------- */
-  footer {
-    background: #0d0b16;
-    color: rgba(255,255,255,0.55);
     text-align: center;
-    padding: 2.6rem 1.5rem;
-    font-size: 0.88rem;
+    font-size: 0.8rem;
+    line-height: 1.7;
+    color: var(--ink-soft);
   }
-  footer .domains {
-    display: flex;
-    gap: 1.4rem;
-    justify-content: center;
-    flex-wrap: wrap;
-    margin-bottom: 1.2rem;
-  }
-  footer .domains span { color: rgba(255,255,255,0.7); font-weight: 600; }
-  footer .founders {
-    margin-top: 0.6rem;
-    font-size: 0.75rem;
-    letter-spacing: 0.22em;
-    text-transform: uppercase;
-    color: rgba(255,255,255,0.38);
-  }
-  footer .disclaimer {
-    margin: 1.2rem auto 0;
-    max-width: 40rem;
-    font-size: 0.75rem;
-    line-height: 1.5;
-    color: rgba(255,255,255,0.35);
-  }
+  .note a { color: var(--ink-soft); }
 
-  @media (max-width: 560px) {
-    .logo-word { letter-spacing: 0.35em; text-indent: 0.35em; }
-    section { padding: 4rem 1.2rem; }
+  @media (prefers-reduced-motion: reduce) {
+    .flag span { animation: none; }
   }
 </style>
 </head>
 <body>
 
-<div class="ribbon" aria-hidden="true">
-  <span></span><span></span><span></span><span></span><span></span><span></span>
-  <span></span><span></span><span></span><span></span><span></span>
-</div>
+<div class="flag" role="img" aria-label="Rainbow pride flag"></div>
 
-<header class="hero">
-  <h1 class="logo-lockup" aria-label="Cape Town — Road to Pride 2028">
-    <span class="logo-word top">Cape&nbsp;Town</span>
-
-    <!-- Continuous-line Table Mountain flowing into a red heart with a pride rainbow -->
-    <svg class="logo-art" viewBox="0 0 1200 340" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
-      <!-- rainbow projecting right from the heart -->
-      <g fill="none" stroke-width="8" stroke-linecap="round">
-        <path stroke="#e40303" d="M 900 185 C 990 169, 1090 179, 1178 187" />
-        <path stroke="#ff8c00" d="M 900 196 C 990 180, 1090 190, 1178 198" />
-        <path stroke="#ffce00" d="M 900 207 C 990 191, 1090 201, 1178 209" />
-        <path stroke="#008026" d="M 900 218 C 990 202, 1090 212, 1178 220" />
-        <path stroke="#004dff" d="M 900 229 C 990 213, 1090 223, 1178 231" />
-        <path stroke="#750787" d="M 900 240 C 990 224, 1090 234, 1178 242" />
-      </g>
-      <!-- Table Mountain -->
-      <path fill="none" stroke="var(--ink)" stroke-width="7" stroke-linecap="round" stroke-linejoin="round"
-        d="M 25 285
-           C 55 280, 82 264, 106 240
-           C 118 227, 128 217, 138 207
-           l 9 -10
-           l 5 5
-           l 10 -12
-           l 5 4
-           C 174 184, 180 172, 184 163
-           l 6 8
-           l 9 -14
-           l 8 30
-           l 9 -69
-           L 596 118
-           l 10 14
-           l 7 -6
-           l 9 22
-           l 8 -9
-           l 12 28
-           C 652 184, 662 196, 672 202
-           l 14 -16
-           l 5 7
-           l 12 -22
-           l 9 16
-           l 6 -7
-           C 736 205, 760 230, 780 248
-           C 795 256, 806 259, 815 262" />
-      <!-- heart silhouette masks the rainbow band starts -->
-      <path fill="var(--paper)" stroke="none"
-        d="M 895 268
-           C 869 246, 849 220, 849 192
-           C 849 166, 871 158, 881 164
-           C 890 169, 894 177, 895 187
-           C 896 177, 900 169, 909 164
-           C 919 158, 941 166, 941 192
-           C 941 220, 922 244, 895 268 Z" />
-      <!-- red heart: wide sweep off the slope, broad crossing at the base, trailing exit -->
-      <path fill="none" stroke="#e40303" stroke-width="7" stroke-linecap="round" stroke-linejoin="round"
-        d="M 815 262
-           C 830 280, 850 292, 868 293
-           C 884 294, 896 284, 902 270
-           C 922 244, 941 220, 941 192
-           C 941 166, 919 158, 909 164
-           C 900 169, 896 177, 895 187
-           C 894 177, 890 169, 881 164
-           C 871 158, 849 166, 849 192
-           C 849 220, 868 244, 888 268
-           C 900 285, 920 295, 948 297" />
-    </svg>
-
-    <span class="logo-word bottom">Road&nbsp;to&nbsp;Pride&nbsp;2028</span>
-  </h1>
-
-  <p class="tagline">An independent network of locals — events, drops and community — celebrating the Mother City's journey to <strong>WorldPride 2028</strong>, the first on African soil.</p>
-  <div class="rainbow-rule" aria-hidden="true"></div>
-
-  <div class="cta-row">
-    <a class="btn btn-primary" href="#subscribe">Get updates</a>
-    <a class="btn btn-ghost" href="#whats-on">What's on</a>
-    <a class="btn btn-ghost" href="#vision">Our vision</a>
-    <a class="btn btn-ghost" href="#partner">Become a partner</a>
-  </div>
-</header>
-
-<section id="vision" class="vision">
-  <div class="wrap">
-    <div class="section-kicker">The Road to 2028</div>
-    <h2>Pride in Cape Town, made bigger than ever.</h2>
-    <p>Cape Town has always marched with heart — and in 2028 the city hosts WorldPride, the first ever on African soil. We're an independent crew of locals building a network of events, products and partnerships across the city in the run-up — growing the community, the culture and the celebration.</p>
-    <p>This page is where it starts. We'll be sharing the highlights beyond the main events — the parties, pop-ups, people and places — to make WorldPride in Cape Town an even greater experience. Follow along as line-ups, launches and collaborations are announced.</p>
-
-    <div class="pillars">
-      <div class="pillar">
-        <h3>Events</h3>
-        <p>Parties, markets, screenings and community gatherings across the Mother City — a growing calendar leading up to the main celebration.</p>
-      </div>
-      <div class="pillar">
-        <h3>Products &amp; Collabs</h3>
-        <p>Limited drops and local collaborations that carry the flag — made in Cape Town, made with pride.</p>
-      </div>
-      <div class="pillar">
-        <h3>Community</h3>
-        <p>A network of people, venues and organisations across the city, connected and amplified. Everyone's invited.</p>
-      </div>
-    </div>
-  </div>
-</section>
-
-<section id="whats-on" class="whats-on">
-  <div class="wrap">
-    <div class="section-kicker">What to do this Pride</div>
-    <h2>Taste, travel and celebrate the Mother City.</h2>
-    <p class="intro">A growing line-up of experiences from our network — here's what's brewing for this Pride season.</p>
-
-    <div class="pillars">
-      <div class="pillar">
-        <h3>Gay Wine Tour</h3>
-        <p>A queer-friendly day through the Cape Winelands — tastings, mountain views and very good company.</p>
-      </div>
-      <div class="pillar">
-        <h3>African Wine Farm Braai</h3>
-        <p>Fire, wine and the Winelands — a proper South African braai on the farm, Pride edition.</p>
-      </div>
-      <div class="pillar">
-        <h3>Travel Tours</h3>
-        <p>Guided trips around the Mother City and beyond — Cape Point, the Peninsula and the spots only locals know.</p>
-      </div>
-      <div class="pillar">
-        <h3>Pop-Up Dinner</h3>
-        <p>An intimate pop-up evening with a three-course dinner — new venue, new menu, every time.</p>
-      </div>
-      <div class="pillar">
-        <h3>Restaurants</h3>
-        <p>Our pick of queer-friendly places to eat and drink across the city, updated as we go.</p>
-      </div>
-      <div class="pillar">
-        <h3>Hikes</h3>
-        <p>Community hikes on the mountain — Lion's Head sunrises, Table Mountain trails, all paces welcome.</p>
-      </div>
-      <div class="pillar">
-        <h3>Park Run</h3>
-        <p>Saturday morning park runs with the crew — 5km, zero pressure, coffee and catch-ups after.</p>
-      </div>
-      <div class="pillar">
-        <h3>Sunset Cruises</h3>
-        <p>Golden-hour cruises from the waterfront — sea air, bubbles and the mountain glowing from the water.</p>
-      </div>
-    </div>
-
-    <p class="note">Dates and bookings drop first to the mailing list — <a href="#subscribe">get updates</a>.</p>
-  </div>
-</section>
-
-<section id="partner" class="partner">
-  <div class="wrap">
-    <div class="section-kicker">Partner with us</div>
-    <h2>Build 2028 with us.</h2>
-    <p>From co-hosting independent events to product collabs and community programmes, there's a place for partners of every size on the road to 2028. We're an independent initiative — not the official WorldPride organisers — so you know exactly who you're teaming up with. Tell us who you are and what you'd bring, and we'll come back to you with ideas.</p>
-    <a class="btn btn-primary" href="mailto:info@worldpridecapetown.com?subject=Partnership%20enquiry%20%E2%80%94%20Road%20to%20Pride%202028%20(independent%20community%20network)&body=Organisation%3A%20%0D%0AContact%20person%3A%20%0D%0AEmail%3A%20%0D%0APhone%3A%20%0D%0AWhat%20kind%20of%20partnership%20interests%20you%3F%20(events%20%2F%20product%20collab%20%2F%20community%20programme)%3A%20%0D%0AWhat%20you%27d%20bring%3A%20%0D%0AAnything%20else%3A%20">Become a partner</a>
-    <p class="partner-note">Opens a pre-filled email — tell us about your organisation and we'll be in touch.</p>
-  </div>
-</section>
-
-<section id="subscribe" class="subscribe">
-  <div class="wrap">
-    <div class="section-kicker">Stay in the loop</div>
-    <h2>Be first to know.</h2>
-    <p>Event announcements, product drops and news on the road to 2028 — straight to your inbox. No spam, unsubscribe anytime.</p>
-
-    <form class="sub-form" data-subscribe>
-      <input type="email" name="email" placeholder="you@example.com" required autocomplete="email" aria-label="Email address">
-      <button class="btn btn-subscribe" type="submit">Subscribe</button>
-    </form>
-    <p class="sub-note">Sign-ups open soon — we're putting the final touches on the list.</p>
-  </div>
-</section>
-
-<footer>
-  <div class="domains">
-    <span>capetownpride2028.co.za</span>
-    <span>capetownpride2028.com</span>
-    <span>worldpridecapetown.co.za</span>
-    <span>worldpridecapetown.com</span>
-  </div>
-  <p>&copy; 2026 Road to Pride 2028 · Cape Town, South Africa</p>
-  <p class="founders">Founders · CARJAMS</p>
-  <p class="disclaimer">An independent community initiative. Not affiliated with, licensed by or endorsed by Cape Town Pride NPC or InterPride Inc. WorldPride is a trademark of InterPride, and WorldPride 2028 is hosted by Cape Town Pride.</p>
-</footer>
+<p class="note">
+  This is a private, independent page displaying the rainbow flag — a universal
+  symbol of LGBTQ+ pride — as personal, non-commercial expression only. Nothing is
+  offered, sold, organised or promoted here. This page and this domain are not
+  affiliated with, licensed by, endorsed by or connected to InterPride&nbsp;Inc.,
+  Cape&nbsp;Town&nbsp;Pride&nbsp;NPC or the WorldPride event, and no such association is
+  claimed or implied. WorldPride is a trademark of InterPride&nbsp;Inc. For official
+  information about WorldPride&nbsp;2028, visit the organisers at
+  <a href="https://cptpride.org" rel="nofollow">cptpride.org</a>.
+</p>
 
 <script>
-  // Subscribe backend not wired up yet — placeholder handler.
-  document.querySelector('[data-subscribe]').addEventListener('submit', function (e) {
-    e.preventDefault();
-    var note = document.querySelector('.sub-note');
-    note.textContent = 'Thanks for your interest! Sign-ups open very soon — check back shortly.';
-    note.style.color = '#ffafc7';
-  });
+  var flag = document.querySelector('.flag');
+  for (var i = 0; i < 36; i++) {
+    var s = document.createElement('span');
+    s.style.setProperty('--i', i);
+    flag.appendChild(s);
+  }
 </script>
 
 </body>
